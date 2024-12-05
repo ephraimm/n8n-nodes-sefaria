@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-sefaria",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "n8n node to connect with Sefaria's API for accessing Jewish texts and connections",
   "keywords": [
     "n8n-community-node-package",

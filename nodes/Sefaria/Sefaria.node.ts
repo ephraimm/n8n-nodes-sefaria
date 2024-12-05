@@ -1,10 +1,19 @@
-import {INodeType, INodeTypeDescription} from 'n8n-workflow';
+import {INodeType, INodeTypeDescription, INodeProperties} from 'n8n-workflow';
 import {N8NPropertiesBuilder, N8NPropertiesBuilderConfig} from '@devlikeapro/n8n-openapi-node';
 import * as doc from './openapi.json';
 
 const config: N8NPropertiesBuilderConfig = {}
 const parser = new N8NPropertiesBuilder(doc, config);
 const properties = parser.build()
+
+const baseUrlProperty: INodeProperties = {
+    displayName: 'Base URL',
+    name: 'baseURL',
+    type: 'string',
+    default: 'https://www.sefaria.org',
+    description: 'Override the default Sefaria API URL (e.g., for using sefaria.org.il)',
+    required: false,
+};
 
 export class Sefaria implements INodeType {
     description: INodeTypeDescription = {
@@ -31,8 +40,8 @@ export class Sefaria implements INodeType {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
             },
-            baseURL: 'https://www.sefaria.org/api/v3',
+            baseURL: '={{$parameter["baseURL"] || "https://www.sefaria.org"}}',
         },
-        properties: properties,
+        properties: [baseUrlProperty, ...properties],
     };
 }
