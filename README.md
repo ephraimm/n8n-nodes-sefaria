@@ -1,112 +1,74 @@
-# @devlikeapro/n8n-nodes-petstore
+# n8n-nodes-sefaria
 
-![n8n logo](n8n.png)
+This package provides n8n nodes to interact with the [Sefaria API](https://www.sefaria.org/developers), allowing you to access Jewish texts and connections programmatically in your n8n workflows.
 
-Example (Template) project for [**Petstore OpenAPI spec**](https://petstore3.swagger.io/)
-using [**devlikeapro/n8n-openapi-node**](https://github.com/devlikeapro/n8n-openapi-node)
+## Features
 
-![screenshot](./images/screenshot.png)
+The Sefaria node allows you to:
+- Access the complete Sefaria library of Jewish texts
+- Search across all texts
+- Retrieve specific texts by reference
+- Get text metadata and structure
+- Access links between texts
+- Retrieve user public collections and notes
 
-<!-- toc -->
+## Installation
 
-- [Run Petstore n8n node locally](#run-petstore-n8n-node-locally)
-  * [NodeJS](#nodejs)
-  * [Install n8n](#install-n8n)
-  * [Start n8n](#start-n8n)
-  * [Build and link the project](#build-and-link-the-project)
-  * [Add node to n8n](#add-node-to-n8n)
-  * [Start n8n again](#start-n8n-again)
-  * [Add Petstore Node to new workflow](#add-petstore-node-to-new-workflow)
-- [Modify Project](#modify-project)
-  * [Test Project Locally](#test-project-locally)
-  * [Publish project](#publish-project)
+To install this node in your n8n instance:
 
-<!-- tocstop -->
-
-# Run Petstore n8n node locally
-Before start modifying the project, we kindly recommend
-to run the Petstore locally.
-
-## NodeJS
-Make sure you're using Node.js > 20 (we're using [nvm](https://github.com/nvm-sh/nvm)):
 ```bash
-nvm install v22.8
-nvm use v22.8
+npm install n8n-nodes-sefaria
 ```
 
-## Install n8n 
-```bash
-npm install n8n -g
-```
+## Usage
 
-## Start n8n
-```bash
-n8n --version
-n8n start
-```
-Open [http://localhost:5678](http://localhost:5678) in your browser and configure it
+1. Add the Sefaria node to your workflow
+2. Configure the node with your desired operation:
+   - Text Retrieval
+   - Search
+   - Index API
+   - Links API
+   - Collections API
 
-## Build and link the project
+No API key is required for most operations, as Sefaria's API is freely available. However, some operations may have rate limits.
+
+## Example Usage
+
+### Get a Text
+Retrieve a specific text passage:
+1. Select the "Text API" operation
+2. Enter the text reference (e.g., "Genesis 1:1")
+3. Choose optional parameters like language and version
+
+### Search Texts
+Search across Sefaria's library:
+1. Select the "Search API" operation
+2. Enter your search query
+3. Configure filters like language and text types
+
+## Development
+
+To run this node locally for development:
+
 ```bash
+# Install dependencies
 npm install
-npm run test
+
+# Build the node
 npm run build
+
+# Link to your local n8n instance
 npm link
-```
 
-## Add node to n8n
-```bash
-cd ~/.n8n
-mkdir -p custom
-cd custom
-npm init # press Enter for all questions
-npm link @devlikeapro/n8n-nodes-petstore
-```
-
-## Start n8n again
-```bash
+# Start n8n with your local node
 n8n start
 ```
 
-## Add Petstore Node to new workflow
-Find `Petstore` in the node list and add it to your workflow
+## Resources
 
-![workflow](./images/workflow.png)
-![screenshot](./images/screenshot.png)
+- [Sefaria API Documentation](https://www.sefaria.org/developers)
+- [n8n Community Nodes Documentation](https://docs.n8n.io/integrations/community-nodes/)
 
-# Modify Project
-Now you're ready to start building your n8n community node!
-1. Place your `openapi.json` in `nodes/{YourNode}`
-2. Replace your project logo in `logo.svg`
-3. Rename all `Petstore` matches to `YourNode` 
-4. Rename all `petstore` matches to `yournode`
-5. Replace all `devlikeapro` to `{yourgithubname}`
+## License
 
-## Test Project Locally
-
-```bash
-npm install
-npm run test
-npm run build
-npm link
-```
-
-Add node to n8n:
-```bash
-cd ~/.n8n
-mkdir -p custom
-cd custom
-npm init # press Enter for all questions
-npm link @devlikeapro/n8n-nodes-petstore
-```
-
-Start n8n:
-```bash
-n8n start
-```
-
-## Publish project
-1. Add your `NPM_TOKEN` in GitHub Actions
-2. Push change
-3. Create a new GitHub Release, `1.0.0` in your project
-4. Install your node in n8n: `@{yourgithubname}/n8n-nodes-{yournode}`
+[MIT](LICENSE.md)

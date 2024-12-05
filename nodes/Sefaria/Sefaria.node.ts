@@ -6,23 +6,23 @@ const config: N8NPropertiesBuilderConfig = {}
 const parser = new N8NPropertiesBuilder(doc, config);
 const properties = parser.build()
 
-export class Petstore implements INodeType {
+export class Sefaria implements INodeType {
     description: INodeTypeDescription = {
-        displayName: 'Petstore',
-        name: 'petstore',
+        displayName: 'Sefaria',
+        name: 'sefaria',
         icon: 'file:logo.svg',
         group: ['transform'],
         version: 1,
         subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
-        description: 'Interact with Petstore API',
+        description: 'Interact with Sefaria API',
         defaults: {
-            name: 'Petstore',
+            name: 'Sefaria',
         },
         inputs: ['main'],
         outputs: ['main'],
         credentials: [
             {
-                name: 'petstoreApi',
+                name: 'sefariaApi',
                 required: false,
             },
         ],
@@ -31,7 +31,7 @@ export class Petstore implements INodeType {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
             },
-            baseURL: 'https://petstore3.swagger.io/api/v3',
+            baseURL: 'https://www.sefaria.org/api/v3',
         },
         properties: properties,
     };

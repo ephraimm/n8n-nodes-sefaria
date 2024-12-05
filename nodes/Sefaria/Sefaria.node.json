@@ -1,0 +1,18 @@
+{
+	"node": "n8n-nodes-base.sefaria",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Education", "Data & Storage"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://www.sefaria.org/developers"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://www.sefaria.org/developers/api"
+			}
+		]
+	}
+}

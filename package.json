@@ -1,19 +1,23 @@
 {
-  "name": "@devlikeapro/n8n-nodes-petstore",
+  "name": "n8n-nodes-sefaria",
   "version": "1.0.0",
-  "description": "n8n node to connect with Petstore",
+  "description": "n8n node to connect with Sefaria's API for accessing Jewish texts and connections",
   "keywords": [
-    "n8n-community-node-package"
+    "n8n-community-node-package",
+    "sefaria",
+    "jewish-texts",
+    "torah",
+    "talmud"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/ephraimm/n8n-nodes-sefaria",
   "author": {
-    "name": "Devlikapro",
-    "email": "admin@devlike.pro"
+    "name": "Ephraim",
+    "email": "ephraim@goseamless.co.za"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/devlikeapro/n8n-nodes-petstore.git"
+    "url": "https://github.com/ephraimm/n8n-nodes-sefaria.git"
   },
   "engines": {
     "node": ">=18.10",
@@ -36,7 +40,7 @@
     "n8nNodesApiVersion": 1,
     "credentials": [],
     "nodes": [
-      "dist/nodes/Petstore/Petstore.node.js"
+      "dist/nodes/Sefaria/Sefaria.node.js"
     ]
   },
   "devDependencies": {
